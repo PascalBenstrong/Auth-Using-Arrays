@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="./bootstrap.min.css" />
+  <style>
+    body {
+      background-color: #a3aaaf;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10pt;
+    }
+
+    #submit {
+      cursor: pointer;
+    }
+  </style>
+
+  <title>Auth Using Arrays</title>
+</head>
+
+<body>
+  <h1>Sign up</h1>
+  <div class="row justify-content-center align-items-center">
+    <form name="signup_form" class="d-flex text-center" method="POST" onsubmit="return validate()">
+      <ul class="form-group">
+        <li class="list-group-item">
+          <input class="form-control form-rounded" type="text" name="name" placeholder="Name" required />
+        </li>
+        <li class="list-group-item">
+          <input class="form-control form-rounded" type="text" name="surname" placeholder="Surname" required />
+        </li>
+        <li class="list-group-item">
+          <input class="form-control form-rounded" type="number" name="age" placeholder="Age" required />
+        </li>
+
+        <li class="list-group-item">
+          <input class="form-control form-rounded" type="email" name="email" placeholder="E-mail" required />
+        </li>
+
+        <li class="list-group-item">
+          <input class="form-control form-rounded" type="password" name="password" placeholder="Password" required />
+        </li>
+        <li class="list-group-item">
+          <input class="form-control form-rounded" type="password" name="v_password" placeholder="confirm password"
+            required />
+        </li>
+        <li class="list-group-item">
+          <button id="submit" class="btn btn-sml btn-primary mx-auto" type="submit" name="submit">
+            Sign up
+          </button>
+        </li>
+      </ul>
+    </form>
+  </div>
+
+  <script>
+    function validate() {
+      let form = document.signup_form;
+
+      data = {
+        Name: form.name.value,
+        Surname: form.surname.value,
+        Age: form.age.value,
+        Email: form.email.value,
+        Password: form.password.value,
+        "Confirm Password": form.v_password.value
+      };
+
+      if (data["Password"] != data["Confirm Password"]) {
+        alert("The passwords do not match");
+        return false;
+
+      } else {
+        alert("Success");
+        // remove if the action is set on the sign up form
+        return false;
+      }
+
+    }
+  </script>
+</body>
+
+</html>
